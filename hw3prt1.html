@@ -26,6 +26,23 @@
                 color: blue;
             }
 
+            th {
+                color: black;
+            }
+
+            table,
+
+            tbody,
+            
+            td {
+                border: 5px solid black;
+                border-collapse: collapse;
+            }
+
+            .center {
+                    margin-left: auto;
+                    margin-right: auto;
+            }
         </style>
     </head>
     <body>
@@ -103,6 +120,38 @@
                 return 'F: Student Must Retake Course';          
     }
         </script>
+        <table class="center">
+            <thead>
+                <!-- tr tag starts here -->
+                <tr>
+                    <th>Percentage:</th>
+                    <th>Letter Grade:</th>
+                </tr>
+                <!-- tr tag ends here -->
+            </thead>
+            <tbody>
+                <tr>
+                    <td>90-100</td>
+                    <td> A </a></td>
+                </tr>
+                <tr>
+                    <td>80-89</td>
+                    <td> B </a></td>
+                </tr>
+                <tr>
+                    <td>70-79</td>
+                    <td> C </a></td>
+                </tr>
+                <tr>
+                    <td>60-69</td>
+                    <td> D </a></td>
+                </tr>
+                <tr>
+                    <td>0-59</td>
+                    <td> F </a></td>
+                </tr>
+            </tbody>
+        </table>
             <h4>
                 <a href="hw3.html"> Return to Homework 3</a>
             </h4>
