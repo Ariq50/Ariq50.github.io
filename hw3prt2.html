@@ -22,14 +22,148 @@
             h3 {
                 color: blue;
             }
+            th {
+                color: black;
+            }
 
+            table,
+
+            tbody,
+            
+            td {
+                border: 5px solid black;
+                border-collapse: collapse;
+            }
+
+            .center {
+                    margin-left: auto;
+                    margin-right: auto;
+            }
         </style>
+        <script>
+            function calcWeeklyPay() 
+            {
+                var item1, item2, item3, item4;
+                var i1, i2, i3, i4, i1Total, i2Total, i3Total, i4Total;
+                var item1Earnings, item2Earnings, item3Earnings, item4Earnings;
+                var totalAmountSold, totalWeeklyEarnings;
+
+                item1 = document.forms["frm1"].elements["I1"].value;
+                item2 = document.forms["frm1"].elements["I2"].value;
+                item3 = document.forms["frm1"].elements["I3"].value;
+                item4 = document.forms["frm1"].elements["I4"].value;
+
+                i1 = parseInt(item1);
+                i2 = parseInt(item2);
+                i3 = parseInt(item3);
+                i4 = parseInt(item4);
+
+                    totalAmountSold = (i1 + i2 + i3 + i4);
+                    document.forms["frm1"].elements["TotalAmountSold"].value = totalAmountSold;
+
+                    totalWeeklyEarnings = (((i1 * 20.99) + (i2 * 12.75) + (i3 * 9.95) + (i4 * 35.89)) * 1.09);
+                    
+                    item1Earnings = i1 * 20.99;
+
+                    item2Earnings = i2 * 12.75;
+
+                    item3Earnings = i3 * 9.95;
+
+                    item4Earnings = i4 * 35.89;
+
+                    i1Total = i1;
+                    i2Total = i2;
+                    i3Total = i3;
+                    i4Total = i4;
+
+                    document.forms["frm1"].elements["I1Total"].value = i1Total;
+                    document.forms["frm1"].elements["I2Total"].value = i2Total;
+                    document.forms["frm1"].elements["I3Total"].value = i3Total;
+                    document.forms["frm1"].elements["I4Total"].value = i4Total;
+
+
+            }
+        </script>
     </head>
     <body>
+        <section class="body">
             <h1>Homework 3</h1>
             <h2>Part 2</h2>
+            <form name="frm1">
+        <table class="center">
+            <thead><tr>
+                <td>Seller's Name:</td>
+                <td><input type="text" name="name" size="10"></td>
+                </tr>
+                <td>Item 1:</td>
+                <td><input type="number" name="I1"></td>
+                </tr>
+                <tr>
+                <td>Item 2:</td>
+                <td><input type="number" name="I2"></td>
+                </tr>
+                <tr>
+                <td>Item 3:</td>
+                <td><input type="number" name="I3"></td>
+                </tr>
+                <tr>
+                <td>Item 4:</td>
+                <td><input type="number" name="I4"></td>
+                </tr>
+                </thead>
+        </table>
+            <table>
+                <tr><input type="button" onclick="calcWeeklyPay()" value="Submit"></tr>
+                <tr><input type='reset' value='Clear Form' name='reset'> </tr>
+            </table>        
+        </table class="center">
+        <table class="center">
+            <thead><tr>
+                <td>Item #</td>
+                <td>Price:</td>
+                <td>Qty Sold:</td>
+                <td></td>
+                <td>Total $:</td>
+                </tr>
+                <td>1:</td>
+                <td>$20.99</td>
+                <td><input type="number" name="I1Total" readonly><td>
+                <td><input type="number" name="Item1Earnings" readonly><td>
+                </tr>
+                <tr>
+                <td>2:</td>
+                <td>$12.75</td>
+                <td><input type="number" name="I2Total" readonly><td></td>
+                <td><input type="number" name="Item2Earnings" readonly><td></td>
+                </tr>
+                <tr>
+                <td>3:</td>
+                <td>$9.95</td>
+                <td><input type="number" name="I3Total" readonly><td></td>
+                <td><input type="number" name="Item3Earnings" readonly><td></td>
+                </tr>
+                <tr>
+                <td>4:</td>
+                <td>$35.89</td>
+                <td><input type="number" name="I4Total" readonly><td></td>
+                <td><input type="number" name="Item4Earnings" readonly><td></td>
+                </tr>
+                <tr>
+                <td>Total Amount Sold:</td>
+                <td><input type="number" name="TotalAmountSold" readonly></td>
+                </tr>
+                <tr>
+                <td>Total Weekly Earnings:</td>
+                <td><input type="number" name="TotalWeeklyEarnings"readonly></td>
+                </tr>
+                </thead>
+        </table>
+            <table>
+            </form>
+        
             <h3>
                 <a href="hw3.html"> Return to Homework 3</a>
             </h3>
+        </section>
     </body>
 </html>
