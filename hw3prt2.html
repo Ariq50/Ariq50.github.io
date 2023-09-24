@@ -48,6 +48,8 @@
                 var item1Earnings, item2Earnings, item3Earnings, item4Earnings;
                 var totalAmountSold, totalWeeklyEarnings;
 
+                var error = "All values must be numbers and not be less than 0!";
+
                 item1 = document.forms["frm1"].elements["I1"].value;
                 item2 = document.forms["frm1"].elements["I2"].value;
                 item3 = document.forms["frm1"].elements["I3"].value;
@@ -93,7 +95,7 @@
                     item4Earnings = i4 * 35.89;
                     item4Earnings = item4Earnings.toFixed(2);
                     document.forms["frm1"].elements["Item4Earnings"].value = item4Earnings;
-            }
+                }
         </script>
     </head>
     <body>
@@ -107,19 +109,19 @@
                 <td><input type="text" name="name" size="10"></td>
                 </tr>
                 <td>Item 1:</td>
-                <td><input type="number" name="I1"></td>
+                <td><input type="number" name="I1" min=0 oninput="validity.valid||(value='');"></td>
                 </tr>
                 <tr>
                 <td>Item 2:</td>
-                <td><input type="number" name="I2"></td>
+                <td><input type="number" name="I2" min=0 oninput="validity.valid||(value='');"></td>
                 </tr>
                 <tr>
                 <td>Item 3:</td>
-                <td><input type="number" name="I3"></td>
+                <td><input type="number" name="I3" min=0 oninput="validity.valid||(value='');"></td>
                 </tr>
                 <tr>
                 <td>Item 4:</td>
-                <td><input type="number" name="I4"></td>
+                <td><input type="number" name="I4" min=0 oninput="validity.valid||(value='');"></td>
                 </tr>
                 </thead>
         </table>
