@@ -85,6 +85,7 @@
                     Error.innerHTML = error ;
                 } else {
                     finAvg = (.5 * hwAvg) + (.2 * midExam) + (.2 * finalExam) + (.1 * participation)
+                    finAvg = finAvg.toFixed(2);
                 
                     var FinAvg = document.getElementById('finAvg');
 
