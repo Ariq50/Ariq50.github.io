@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Looping Examples</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js">
+        </script>
+    <style>
+        #draggable {
+            width: 150px;
+            height: 150px;
+            padding: 0.5em;
+            background-color: #ccc;
+            border: 1px solid #999;
+            border-radius: 5px;
+            text-align: center;
+            cursor: move;
+        }
+        #droppable {
+            width: 500px;
+            height: 200px;
+            margin-top: 50px;
+            padding: 0.5em;
+            background-color: #f7f7f7;
+            border: 2px dashed #999;
+            border-radius: 5px;
+            text-align: center;
+        }
+    </style>
+    </head>
+    <body>
+        <h2>Part 1</h2>
+        <div id="part1">
+        <h3>Looping With For Statement</h3>
+        <p>The result of the product of every fourth integer from 5 to 25 inclusive is <span 
+            id="product1"></span>.</p>
+        <p>The result of the sum of every fourth integer from 5 to 25 inclusive is <span
+            id="sum1"></span>.</p>
+        <hr>
+        <h3>Looping With While Statement</h3>
+        <p>The result of the product of every third integer from 3 to 18 inclusive is <span
+        id="product2"></span>.</p>
+        <p>The result of the sum of every third integer from 3 to 18 inclusive is <span
+        id="sum2"></span>.</p>
+    </div>
+    <script>
+        //Part 1
+        //Looping with for statement
+        let product1 = 1;
+        let sum1 = 0;
+        for(let i = 5; i <= 25; i += 4) 
+        {
+            product1 *= i;
+            sum1 += i;
+        }
+        document.getElementById("product1").textContent = product1.toLocaleString();
+        document.getElementById("sum1").textContent = sum1.toLocaleString();
+
+        //Looping with while statement
+        let product2 = 1;
+        let sum2 = 0;
+        let j = 3;
+        while(j <= 18)
+        {
+            product2 *= j;
+            sum2 += j;
+            j += 3;
+        }
+        document.getElementById("product2").textContent = product2.toLocaleString();
+        document.getElementById("sum2").textContent = sum2.toLocaleString();
+    </script>
+</body>
+</html>
