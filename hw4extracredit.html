@@ -1,49 +1,57 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Hollow Square</title>
-	<style type="text/css">
-		.square {
-			font-family: monospace;
-			font-size: 20px;
-			margin-top: 20px;
-			text-align: center;
-		}
-	</style>
+<title>Creating Square</title>
 </head>
 <body>
-	<h1>Hollow Square</h1>
-	<form>
-		<label for="size">Enter a number between 2 and 10:</label>
-		<input type="number" id="size" name="size" min="2" max="10">
-		<button type="button" id="submitBtn">Submit</button>
-		<button type="reset">Clear</button>
-	</form>
-	<div id="result"></div>
- <script type="text/javascript">
-	const form = document.querySelector('form');
-	const submitBtn = document.querySelector('#submitBtn');
-	const resultDiv = document.querySelector('#result');
+Enter the size of box:
+<input type="text" id = "size" >
+<br />
+<button onclick="squareFun()">Click to draw</button>
+<br />
+<p id = "box"></p>
+<pre>
+<script>
+function squareFun(){
+var box_size = document.getElementById("size").value;
+var i, j;
+//check if the size is not less than 3 and not more than 30
+if(box_size<3||box_size>30){
+alert('Wrong Input');
+}
+else{
+document.write('Square of specified size');
+document.write('<br/>');
+for(i=0; i<box_size; i++){
+for(j=0; j<box_size; j++){
+document.write('*');
+}
+document.write('<br/>');
+}
 
-	submitBtn.addEventListener('click', () => {
-		const size = Number(document.querySelector('#size').value);
-		if (isNaN(size) || size < 2 || size > 10) {
-			resultDiv.textContent = 'Invalid input. Please enter a number between 2 and 10.';
-		} else {
-			let square = '';
-			for (let i = 1; i <= size; i++) {
-				for (let j = 1; j <= size; j++) {
-					if (i == 1 || i == size || j == 1 || j == size) {
-						square += '*';
-					} else {
-						square += ' ';
-					}
-				}
-			}
-			square += '\n';
-		}
-		resultDiv.textContent = square;
-	});
+//Hollow Square
+document.write("Hollow Square");
+document.write('<br/>');
+//Draw the first row
+for(i=0; i<box_size; i++)
+document.write('*');
+document.write('<br/>');
+
+for(i=1; i<box_size; i++){
+document.write('*');
+for(j=0; j<=box_size; j++)
+document.write('&nbsp');
+document.write('*');
+document.write('<br/>');
+}
+
+//Draw the last line
+for(i=0; i<box_size; i++)
+document.write('*');
+document.write('<br/>');
+}
+}
 </script>
+</pre>
 </body>
 </html>
