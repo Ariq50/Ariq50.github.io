@@ -17,18 +17,9 @@ var box_size = document.getElementById("size").value;
 var i, j;
 //check if the size is not less than 3 and not more than 30
 if(box_size<3||box_size>30){
-alert('Wrong Input');
+document.write('Wrong Input');
 }
 else{
-document.write('Square of specified size');
-document.write('<br/>');
-for(i=0; i<box_size; i++){
-for(j=0; j<box_size; j++){
-document.write('*');
-}
-document.write('<br/>');
-}
-
 //Hollow Square
 document.write("Hollow Square");
 document.write('<br/>');
