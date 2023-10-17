@@ -31,14 +31,14 @@ document.write('<br/>');
 for(i=1; i<box_size; i++){
 document.write('*');
 for(j=0; j<=box_size; j++)
-document.write('&nbsp');
+document.write(' ');
 document.write('*');
 document.write('<br/>');
 }
 
 //Draw the last line
 for(i=0; i<box_size; i++)
-document.write('*');
+document.write('*' + '&nbsp');
 document.write('<br/>');
 }
 }
