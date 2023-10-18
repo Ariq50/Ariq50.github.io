@@ -1,49 +1,129 @@
 <!DOCTYPE html>
-<html>
+
 <head>
-<title>Creating Square</title>
+
+ <title>Hollow Square</title>
+
+ <style type="text/css">
+ h1 {
+   text-align: center;
+ }
+
+ input.n {text-align:center;}
+
+ body {background-color: coral;}
+
+ .body { width: 550px; margin: 0px auto;}
+
+ form 
+
+ {
+
+ padding: 10px;
+
+ margin: 10 px;
+
+ }
+
+ </style>
+
 </head>
+
 <body>
-Enter the size of box:
-<input type="text" id = "size" >
-<br />
-<button onclick="squareFun()">Click to draw</button>
-<br />
-<p id = "box"></p>
-<pre>
-<script>
-function squareFun(){
-var box_size = document.getElementById("size").value;
-var i, j;
-//check if the size is not less than 3 and not more than 30
-if(box_size<3||box_size>30){
-document.write('Wrong Input');
-}
-else{
-//Hollow Square
-document.write("Hollow Square");
-document.write('<br/>');
-//Draw the first row
-for(i=0; i<box_size; i++)
-document.write('*');
-document.write('<br/>');
 
-for(i=1; i<box_size; i++){
-document.write(' * ');
-for(j=0; j<=box_size; j++)
-document.write('&nbsp' + '&nbsp');
-document.write(' * ');
-document.write('<br/>');
-}
+ <h1>Hollow Square</h1>
 
-//Draw the last line
-for(i=0; i<box_size; i++)
-document.write('*');
-document.write('<br/>');
-}
-}
-</script>
-</pre>
+ <form>
+
+ <label for="value">Number of Stars: </label>
+
+ <input type="number" name="value" id="value">
+
+ <br><br>
+
+ <input type="button" value="Submit" onclick="drawHollowBox();">
+
+ <input type="reset" value = "Clear" onclick="window.location.reload();">
+
+ <br><br>
+
+ </form>
+
+ <div id = "result"></div>
+
+ <script>
+
+ function drawHollowBox() 
+
+ {
+
+ var row = parseInt(document.getElementById("value").value); 
+
+ var space = row-2;
+
+ document.write( "<pre>" );
+
+ 
+
+ if (row < 2 || row > 10) {
+
+ document.write("Invalid Input. Value entered must be an integer between 2 and 10, inclusive.");
+
+ }
+
+ else {
+
+
+ for (var i=0; i<row; i++) {
+
+ if (i==0 || i==row-1) {
+
+ for (var j=0; j<row; j++) 
+
+ {
+
+ {
+
+ document.write("*");
+
+ }
+
+ }
+
+ }
+
+ else 
+
+ {
+
+ document.write("*");
+
+ for(var m=0; m<space; m++) {
+
+ document.write(" ");
+
+ }
+
+ document.write("*");
+
+ }
+
+ document.write("<br>"); 
+
+ 
+
+ }
+
+ 
+
+ }
+
+ document.write( "</pre>" ); 
+
+ } 
+
+ </script>
+
+ 
+
 </body>
-</html>
-
