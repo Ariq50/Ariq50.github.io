@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Homework 5, Part 2</title>
+    <meta charset="utf-8">
+    <meta name="description"
+          content="Page for Homework 5, Part 2">
+    <style>
+        body {
+            background-color: coral;
+            text-align: center;
+        }
+
+        h1 {
+            color: purple;
+        }
+
+        h2 {
+            color: chartreuse;
+        }
+
+        h3 {
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <h1>Homework 5</h1>
+    <h2>Part 2</h2>
+    <form>
+        <select name="destList" onchange="goToNewPage(this.form);">
+            <option>Choose website:</option>
+            <option value="http://www.html5foundations.com/">HTML5 Foundations</option>
+            <option value="http://www.google.com/">Google</option>
+            <option value="http://www.openjsf.org/">OpenJS Foundation</option>
+        </select>
+    </form>
+
+    <form>
+        <select name="destList">
+            <option value="http://www.html5foundations.com/">HTML5 Foundations</option>
+            <option value="http://www.google.com/">Google</option>
+            <option value="http://www.openjsf.org/">OpenJS Foundation</option>
+        </select>
+
+        <input type="button" value="Go" onclick="goToNewPage(this.form);">
+    </form>
+
+    <script>
+        function goToNewPage(myForm)
+        {
+            var mydest = myForm.destList.options[myForm.destList.selectedIndex].value;
+            window.location = mydest;
+        }
+    </script>
+
+    <h3>
+        <a href="hw5.html"> Return to Homework 5</a>
+    </h3>
+</body>
+</html>
