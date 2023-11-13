@@ -63,20 +63,28 @@
             } else if(nameEntered == "" && radioSelected && checkboxChecked)
               {
                 document.getElementById("error").innerHTML = "Please enter your user name."
+                resultReset();
               } else if(nameEntered && !radioSelected && checkboxChecked)
               {
                 document.getElementById("error").innerHTML = "Please select an age option from those provided."
+                resultReset();
               } else if(nameEntered && radioSelected && !checkboxChecked)
               {
                 document.getElementById("error").innerHTML = "Please select a browser option from those provided."
+                resultReset();
               } else {
                 document.getElementById("error").innerHTML = "Please fill in all fields."
+                resultReset();
               }
             }
         function allInformationSubmitted()
         {
             document.getElementById("error").innerHTML = "";  
         }
+        function resultReset()
+            {
+                document.getElementById("result").innerHTML = "";
+            }
     </script>
 </body>
 </html>
