@@ -165,12 +165,18 @@
 
             inp = inp.toUpperCase();
 
+            var hasName = true;
+
+            var validChar = true;
+
             if(inp == "")
             {
-                var error = "Please enter a US state name."  
+                var error = "Please enter a US state name."
+                var hasName = false;
             } else if (!/^[a-zA-Z]*$/g.test(inp)) {
                 var error = "Invalid character(s)."
-            } else {
+                var validChar = false;
+            } else if(hasName && validChar) {
                 for(var i = 0; i < 6; i++)
             {
                 if(inp != stateCensusData[i][0])
