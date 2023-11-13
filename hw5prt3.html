@@ -165,24 +165,15 @@
 
             inp = inp.toUpperCase();
 
-            var hasName = true;
-
-            var validChar = true;
-
             if(inp == "")
             {
-                var error = "Please enter a US state name."
-                var hasName = false;
+                var error = "Please enter a US state name."  
             } else if (!/^[a-zA-Z]*$/g.test(inp)) {
                 var error = "Invalid character(s)."
-                var validChar = false;
-            } else if(hasName && validChar) {
-                for(var i = 0; i < 6; i++)
+            } else if (inp != "AL" || inp != "ALABAMA" || inp != "AK" || inp != "ALASKA" || inp != "AZ" || inp != "ARIZONA" || inp != "AR" || inp != "ARKANSAS" || 
+            inp != "CA" || inp != "CALIFORNIA" || inp != "CO" || inp != "COLORADO") 
             {
-                if(inp != stateCensusData[i][0])
-                {
                 var error = "Sorry, we do not have information about this state! We only have information about the following US states: Alabama, Alaska, Arizona,Arkansas, California, and Colorado."
-                }
             }
 
             var Error = document.getElementById('error');
