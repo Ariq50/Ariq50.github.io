@@ -170,10 +170,13 @@
                 var error = "Please enter a US state name."  
             } else if (!/^[a-zA-Z]*$/g.test(inp)) {
                 var error = "Invalid character(s)."
-            } else if (inp != "AL" || inp != "ALABAMA" || inp != "AK" || inp != "ALASKA" || inp != "AZ" || inp != "ARIZONA" || inp != "AR" || inp != "ARKANSAS" || 
-            inp != "CA" || inp != "CALIFORNIA" || inp != "CO" || inp != "COLORADO") 
+            } else {
+                for(var i = 0; i < 6; i++)
             {
+                if(inp != stateCensusData[i][0])
+                {
                 var error = "Sorry, we do not have information about this state! We only have information about the following US states: Alabama, Alaska, Arizona,Arkansas, California, and Colorado."
+                }
             }
 
             var Error = document.getElementById('error');
