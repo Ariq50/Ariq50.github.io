@@ -68,6 +68,9 @@
                 document.forms["frm1"].elements["stateName"].value = "";
                 document.forms["frm1"].elements["stateCapitol"].value = "";
                 document.forms["frm1"].elements["statePopulation"].value = "";
+                
+                var Error = document.getElementById('error');
+                Error.innerHTML = error ;
             } else if(inp == 'AL' || inp == 'ALABAMA')
             {
                 stateAbr = stateCensusData[0][0];
