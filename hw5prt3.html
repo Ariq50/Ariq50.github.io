@@ -172,9 +172,11 @@
             if(inp == "")
             {
                 var error = "Please enter a US state name."
+                resetAllResultFields();
                 var hasName = false;  
             } else if (!/^[a-zA-Z]*$/g.test(inp)) {
                 var error = "Invalid character(s)."
+                resetAllResultFields();
                 var validChar = false;
             } else if (hasName && validChar) 
             {
@@ -183,6 +185,7 @@
                     if(inp != stateCensusDataArray[i][0] )
                     {
                         var error = "Sorry, we do not have information about this state! We only have information about the following US states: Alabama, Alaska, Arizona,Arkansas, California, and Colorado."
+                        resetAllResultFields();
                     }
                 }
             }
@@ -191,6 +194,13 @@
 
             Error.innerHTML = error ;
         }
+        function resetAllResultFields()
+            {
+                document.getElementById("stateAbr").innerHTML = "";
+                document.getElementById("stateName").innerHTML = "";
+                document.getElementById("stateCapitol").innerHTML = "";
+                document.getElementById("statePopulation").innerHTML = ""; 
+            }
     </script>
     <h3>
         <a href="hw5.html"> Return to Homework 5</a>
