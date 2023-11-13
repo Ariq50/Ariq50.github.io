@@ -172,11 +172,11 @@
             if(inp == "")
             {
                 var error = "Please enter a US state name."
-                resetAllResultFields();
+                resetAllResultAndInputFields();
                 var hasName = false;  
             } else if (!/^[a-zA-Z]*$/g.test(inp)) {
                 var error = "Invalid character(s)."
-                resetAllResultFields();
+                resetAllResultAndInputFields();
                 var validChar = false;
             } else if (hasName && validChar) 
             {
@@ -185,7 +185,7 @@
                     if(inp != stateCensusDataArray[i][0] )
                     {
                         var error = "Sorry, we do not have information about this state! We only have information about the following US states: Alabama, Alaska, Arizona,Arkansas, California, and Colorado."
-                        resetAllResultFields();
+                        resetAllResultAndInputFields();
                     }
                 }
             }
@@ -194,8 +194,9 @@
 
             Error.innerHTML = error ;
         }
-        function resetAllResultFields()
+        function resetAllResultAndInputFields()
             {
+                document.getElementById("name").innerHTML = "";
                 document.getElementById("stateAbr").innerHTML = "";
                 document.getElementById("stateName").innerHTML = "";
                 document.getElementById("stateCapitol").innerHTML = "";
