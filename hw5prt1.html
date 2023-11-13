@@ -56,6 +56,7 @@
   var checkboxChecked = document.querySelector('input[name="browser"]:checked');
   if (nameEntered && radioSelected && checkboxChecked) {
     document.getElementById("result").innerHTML = "Thanks, your data was submitted!";
+     document.getElementById("error").innerHTML = "";
   } else if(nameEntered == "" && radioSelected && checkboxChecked)
   {
     document.getElementById("error").innerHTML = "Please enter your user name."
