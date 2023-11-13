@@ -40,7 +40,7 @@
         <input type='reset' value='Reset' name='reset'>
     </form>
     <script>
-        var stateCensusData = [
+        var stateCensusDataArray = [
                 ["AL", "Alabama", "Montgomery", "4,903,185"],
                 ["AK", "Alaska", "Juneau", "731,545"],
                 ["AZ", "Arizona", "Phoenix", "7,278,717"],
@@ -76,10 +76,10 @@
 
             else if(inp == 'AL' || inp == 'ALABAMA')
             {
-                stateAbr = stateCensusData[0][0];
-                stateName = stateCensusData[0][1];
-                stateCapitol = stateCensusData[0][2];
-                statePopulation = stateCensusData[0][3];
+                stateAbr = stateCensusDataArray[0][0];
+                stateName = stateCensusDataArray[0][1];
+                stateCapitol = stateCensusDataArray[0][2];
+                statePopulation = stateCensusDataArray[0][3];
 
                 var error = "";
 
@@ -88,10 +88,10 @@
                 Error.innerHTML = error ;
             } else if(inp == 'AK' || inp == 'ALASKA') 
             {
-                stateAbr = stateCensusData[1][0];
-                stateName = stateCensusData[1][1];
-                stateCapitol = stateCensusData[1][2];
-                statePopulation = stateCensusData[1][3];
+                stateAbr = stateCensusDataArray[1][0];
+                stateName = stateCensusDataArray[1][1];
+                stateCapitol = stateCensusDataArray[1][2];
+                statePopulation = stateCensusDataArray[1][3];
 
                 var error = "";
 
@@ -100,10 +100,10 @@
                 Error.innerHTML = error ;
             } else if(inp == 'AZ' || inp == 'ARIZONA')
             {
-                stateAbr = stateCensusData[2][0];
-                stateName = stateCensusData[2][1];
-                stateCapitol = stateCensusData[2][2];
-                statePopulation = stateCensusData[2][3];
+                stateAbr = stateCensusDataArray[2][0];
+                stateName = stateCensusDataArray[2][1];
+                stateCapitol = stateCensusDataArray[2][2];
+                statePopulation = stateCensusDataArray[2][3];
 
                 var error = "";
 
@@ -112,10 +112,10 @@
                 Error.innerHTML = error ;
             } else if(inp == 'AR' || inp == 'ARKANSAS')
             {
-                stateAbr = stateCensusData[3][0];
-                stateName = stateCensusData[3][1];
-                stateCapitol = stateCensusData[3][2];
-                statePopulation = stateCensusData[3][3];
+                stateAbr = stateCensusDataArray[3][0];
+                stateName = stateCensusDataArray[3][1];
+                stateCapitol = stateCensusDataArray[3][2];
+                statePopulation = stateCensusDataArray[3][3];
 
                 var error = "";
 
@@ -124,10 +124,10 @@
                 Error.innerHTML = error ;
             } else if(inp == 'CA' || inp == 'CALIFORNIA')
             {
-                stateAbr = stateCensusData[4][0];
-                stateName = stateCensusData[4][1];
-                stateCapitol = stateCensusData[4][2];
-                statePopulation = stateCensusData[4][3];
+                stateAbr = stateCensusDataArray[4][0];
+                stateName = stateCensusDataArray[4][1];
+                stateCapitol = stateCensusDataArray[4][2];
+                statePopulation = stateCensusDataArray[4][3];
 
                 var error = "";
 
@@ -136,10 +136,10 @@
                 Error.innerHTML = error ;
             } else if(inp == 'CO' || inp == 'COLORADO')
             {
-                stateAbr = stateCensusData[5][0];
-                stateName = stateCensusData[5][1];
-                stateCapitol = stateCensusData[5][2];
-                statePopulation = stateCensusData[5][3];
+                stateAbr = stateCensusDataArray[5][0];
+                stateName = stateCensusDataArray[5][1];
+                stateCapitol = stateCensusDataArray[5][2];
+                statePopulation = stateCensusDataArray[5][3];
 
                 var error = "";
 
@@ -162,18 +162,29 @@
         function validate() 
         {
             var inp = document.getElementById('name').value;
+            
+            var hasName = true;
+
+            var validChar = true;
 
             inp = inp.toUpperCase();
 
             if(inp == "")
             {
-                var error = "Please enter a US state name."  
+                var error = "Please enter a US state name."
+                var hasName = false;  
             } else if (!/^[a-zA-Z]*$/g.test(inp)) {
                 var error = "Invalid character(s)."
-            } else if (inp != "AL" || inp != "ALABAMA" || inp != "AK" || inp != "ALASKA" || inp != "AZ" || inp != "ARIZONA" || inp != "AR" || inp != "ARKANSAS" || 
-            inp != "CA" || inp != "CALIFORNIA" || inp != "CO" || inp != "COLORADO") 
+                var validChar = false;
+            } else if (hasName && validChar) 
             {
-                var error = "Sorry, we do not have information about this state! We only have information about the following US states: Alabama, Alaska, Arizona,Arkansas, California, and Colorado."
+                for(var i = 0; i < 6; i++)
+                {
+                    if(inp != stateCensusDataArray[i][0] )
+                    {
+                        var error = "Sorry, we do not have information about this state! We only have information about the following US states: Alabama, Alaska, Arizona,Arkansas, California, and Colorado."
+                    }
+                }
             }
 
             var Error = document.getElementById('error');
