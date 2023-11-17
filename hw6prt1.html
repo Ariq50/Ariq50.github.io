@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Homework 6, Part 1</title>
+        <meta charset="utf-8">
+        <meta name="description"
+              content="Page for Homework 6, Part 1">
+        <style>
+            body {
+                background-color: coral;
+                text-align: center;
+            }
+
+            h1 {
+                color: purple;
+            }
+
+            h2 {
+                color: chartreuse;
+            }
+
+            h3 {
+                color: blue;
+            }
+
+        </style>
+    </head>
+    <body>
+            <h1>Homework 6</h1>
+            <h2>Part 1</h2>
+            <form id="frm1" action="form_action.asp">
+                Number: <input type="number" step="0.0001" name="x" id="x"><br>
+                <input type="button" onclick="calc()" value="Submit">
+        <div>
+            <p id="error"></p>
+            <p>You Typed: </p><p id="numberEntered"> </p>
+            <p>Number Rounded To Nearest Integer: </p><p id="round"> </p>
+            <p>Square Root of Number Entered: </p><p id="sqrt"> </p>
+            <p>Number Rounded To Nearest Tenths Position: </p><p id="tenths"> </p>
+            <p>Number Rounded To Nearest Hundredths Position: </p><p id="hundredths"> </p>
+            <p>Number Rounded To Nearest Thousandths Position: </p><p id="thousandths"> </p>
+        </div>
+        <input type='reset' value='Reset' name='reset'>
+        <script>
+            
+
+            function calc(x)
+            {
+                var x = document.getElementById('x').value;
+                var error = "";
+                x = parseFloat(x);
+                if(isValidFloat(x)){
+                    var round = Math.round(x);
+                var sqrt = Math.sqrt(x);
+                sqrt = Math.round(sqrt);
+                var tenths = x.toFixed(1);
+                var hundredths = x.toFixed(2);
+                var thousandths = x.toFixed(3);
+
+                var X = document.getElementById('numberEntered');
+                var Round = document.getElementById('round');
+                var Sqrt = document.getElementById('sqrt');
+                var Tenths = document.getElementById('tenths');
+                var Hundredths = document.getElementById('hundredths');
+                var Thousandths = document.getElementById('thousandths');
+
+                X.innerHTML = x;
+                Round.innerHTML = round;
+                Sqrt.innerHTML = sqrt;
+                Tenths.innerHTML = tenths;
+                Hundredths.innerHTML = hundredths;
+                Thousandths.innerHTML = thousandths;
+                } else {
+                    var error = "Please enter a decimal with at least 4 places after the decimal point."
+                    var Error = document.getElementById('error');
+                    Error.innerHTML = error ;
+                }
+                
+            }
+
+            function isValidFloat(x)
+            {
+                var regex = /^\d+\.\d{4,}$/;
+
+                return regex.test (x);
+            }
+        </script>
+            </form>   
+            <h3>
+                <a href="hw6.html">Homework 6</a>
+            </h3>
+    </body>
+</html>
