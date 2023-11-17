@@ -42,8 +42,6 @@
         </div>
         <input type='reset' value='Reset' name='reset'>
         <script>
-            
-
             function mathStuff(x)
             {
                 var x = document.getElementById('x').value;
@@ -74,14 +72,12 @@
                     var error = "You need to type a number with at least 4 decimals, please try again."
                     var Error = document.getElementById('error');
                     Error.innerHTML = error ;
-                }
-                
+                } 
             }
 
             function isValidFloat(x)
             {
                 var regex = /^\d+\.\d{4,}$/;
-
                 return regex.test (x);
             }
         </script>
