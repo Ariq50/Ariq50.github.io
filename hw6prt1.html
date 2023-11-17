@@ -30,7 +30,7 @@
             <h2>Part 1</h2>
             <form id="frm1" action="form_action.asp">
                 Number: <input type="number" step="0.0001" name="x" id="x"><br>
-                <input type="button" onclick="calc()" value="Submit">
+                <input type="button" onclick="mathStuff()" value="Submit">
         <div>
             <p id="error"></p>
             <p>You Typed: </p><p id="numberEntered"> </p>
@@ -44,7 +44,7 @@
         <script>
             
 
-            function calc(x)
+            function mathStuff(x)
             {
                 var x = document.getElementById('x').value;
                 var error = "";
