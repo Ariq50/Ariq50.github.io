@@ -1,35 +1,51 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <title>Homework 6, Part 2</title>
-        <meta charset="utf-8">
-        <meta name="description"
-              content="Page for Homework 6, Part 2">
-        <style>
-            body {
-                background-color: coral;
-                text-align: center;
+<html>
+<head>
+    <title>Homework 6 Part 2</title>
+    <script>
+        function searchCharacter() {
+            // get the user input from the textarea and the input box
+            var content = document.getElementById("content").value;
+            content = content.toUpperCase();
+            var character = document.getElementById("character").value;
+            character = character.toUpperCase();
+            // check if the character is valid
+            if (character.length != 1) {
+                alert("Please enter only one character to search.");
+                return;
             }
-
-            h1 {
-                color: purple;
+            // count the number of occurrences of the character in the content
+            var count = 0;
+            for (var i = 0; i < content.length; i++) {
+                if (content[i] == character) {
+                    count++;
+                }
             }
-
-            h2 {
-                color: chartreuse;
+            // display the result in the output area or a new window
+            var output = document.getElementById("output");
+            if (count > 0) {
+                output.value = "The character " + character + " shows up " + count + " times in the content.";
+            } else {
+                output.value = ""; // clear the output area
+                var message = "Search character " + character + " not found in the content you typed.";
+                var newWindow = window.open("", "", "width=300, height=100"); // open a new window
+                newWindow.document.write("<p>" + message + "</p>"); // write the message
+                newWindow.document.write("<button onclick='window.close()'>Close</button>"); // write a button to close the window
             }
-
-            h3 {
-                color: blue;
-            }
-
-        </style>
-    </head>
-    <body>
-            <h1>Homework 6</h1>
-            <h2>Part 2</h2>
-            <h3>
-                <a href="hw6.html">Homework 6</a>
-            </h3>
-    </body>
+        }
+    </script>
+</head>
+<body>
+    <h1>Character Search</h1>
+    <form>
+        <p>Type a long content in the textarea below:</p>
+        <textarea id="content" rows="10" cols="50"></textarea>
+        <p>Type a single character in the input box below:</p>
+        <input id="character" type="text" maxlength="1">
+        <p>Click the submit button to search for the character in the content:</p>
+        <input type="button" value="Submit" onclick="searchCharacter()">
+        <p>The result will be shown in the output area below or a new window:</p>
+        <textarea id="output" rows="5" cols="50" readonly></textarea>
+    </form>
+    <p><a href="homework6.html">Return to the main page of Homework 6</a></p>
+</body>
 </html>
