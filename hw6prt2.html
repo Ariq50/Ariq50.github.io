@@ -45,10 +45,10 @@
             // display the result in the output area or a new window
             var output = document.getElementById("output");
             if (count > 0) {
-                output.value = "The character " + character + " shows up " + count + " times in the content.";
+                output.value = "The character shows up " + count + " times in the content.";
             } else {
                 output.value = ""; // clear the output area
-                var message = "Search character " + character + " not found in the content you typed.";
+                var message = "Search character not found in the content you typed.";
                 var newWindow = window.open("", "", "width=300, height=100"); // open a new window
                 newWindow.document.write("<p>" + message + "</p>"); // write the message
                 newWindow.document.write("<button onclick='window.close()'>Close</button>"); // write a button to close the window
