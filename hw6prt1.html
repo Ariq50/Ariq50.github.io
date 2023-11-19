@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>Homework 6, Part 1</title>
+<head>
+  <title>Homework 6 - Part 1</title>
         <meta charset="utf-8">
         <meta name="description"
-              content="Page for Homework 6, Part 1">
+              content="Page for Homework 6, Part 2">
         <style>
             body {
                 background-color: coral;
@@ -24,66 +24,61 @@
             }
 
         </style>
-    </head>
-    <body>
-            <h1>Homework 6</h1>
-            <h2>Part 1</h2>
-            <form id="frm1" action="form_action.asp">
-                Number: <input type="number" step="0.0001" name="x" id="x"><br>
-                <input type="button" onclick="mathStuff()" value="Submit">
-        <div>
-            <p id="error"></p>
-            <p>You Typed: </p><p id="numberEntered"> </p>
-            <p>Number Rounded To Nearest Integer: </p><p id="round"> </p>
-            <p>Square Root of Number Entered: </p><p id="sqrt"> </p>
-            <p>Number Rounded To Nearest Tenths Position: </p><p id="tenths"> </p>
-            <p>Number Rounded To Nearest Hundredths Position: </p><p id="hundredths"> </p>
-            <p>Number Rounded To Nearest Thousandths Position: </p><p id="thousandths"> </p>
-        </div>
-        <input type='reset' value='Reset' name='reset'>
-            </form>
-        <script>
-            function mathStuff(x)
-            {
-                var x = document.getElementById('x').value;
-                var error = "";
-                x = parseFloat(x);
-                if(isValidFloat(x)){
-                    var round = Math.round(x);
-                var sqrt = Math.sqrt(x);
-                sqrt = Math.round(sqrt);
-                var tenths = x.toFixed(1);
-                var hundredths = x.toFixed(2);
-                var thousandths = x.toFixed(3);
+  <script>
+    // This function will validate the input and perform the calculations
+    function calculate() {
+      // Get the input element by its id
+      var input = document.getElementById("input");
+      // Get the value of the input element and parse it as a float
+      var number = parseFloat(input.value);
+      // Get the output element by its id
+      var output = document.getElementById("output");
+      // Clear the output element
+      output.innerHTML = "";
+      // Check if the input is a valid number
+      if (isNaN(number)) {
+        // Display an error message
+        output.innerHTML = "You need to type a valid number, please try again";
+      } else {
+        // Check if the input has at least 4 decimals
+        var decimals = input.value.split(".")[1];
+        if (decimals == undefined || decimals.length < 4) {
+          // Display an error message
+          output.innerHTML = "You need to type a number with at least 4 decimals, please try again";
+        } else {
+          // Perform the calculations and display the results
+          output.innerHTML += "You typed number " + number + "<br>";
+          output.innerHTML += "Rounded to the nearest integer = " + Math.round(number) + "<br>";
+          output.innerHTML += "Square root rounded to integer = " + Math.round(Math.sqrt(number)) + "<br>";
+          output.innerHTML += "Rounded to the nearest 10th position = " + number.toFixed(1) + "<br>";
+          output.innerHTML += "Rounded to the nearest 100th position = " + number.toFixed(2) + "<br>";
+          output.innerHTML += "Rounded to the nearest 1000th position = " + number.toFixed(3) + "<br>";
+        }
+      }
+    }
 
-                var X = document.getElementById('numberEntered');
-                var Round = document.getElementById('round');
-                var Sqrt = document.getElementById('sqrt');
-                var Tenths = document.getElementById('tenths');
-                var Hundredths = document.getElementById('hundredths');
-                var Thousandths = document.getElementById('thousandths');
-
-                X.innerHTML = x;
-                Round.innerHTML = round;
-                Sqrt.innerHTML = sqrt;
-                Tenths.innerHTML = tenths;
-                Hundredths.innerHTML = hundredths;
-                Thousandths.innerHTML = thousandths;
-                } else {
-                    var error = "You need to type a number with at least 4 decimals, please try again."
-                    var Error = document.getElementById('error');
-                    Error.innerHTML = error ;
-                } 
-            }
-
-            function isValidFloat(x)
-            {
-                var regex = /^\d+\.\d{4,}$/;
-                return regex.test (x);
-            }
-        </script>
-            <h3>
-                <a href="hw6.html">Homework 6</a>
-            </h3>
-    </body>
+    // This function will clear the input and output elements
+    function clear() {
+      // Get the input element by its id
+      var input = document.getElementById("input");
+      // Get the output element by its id
+      var output = document.getElementById("output");
+      // Clear the input and output elements
+      input.value = "";
+      output.innerHTML = "";
+    }
+  </script>
+</head>
+<body>
+  <h1>Homework 6</h1>
+  <h2> Part 1 </h2>
+  <form>
+    <p>Enter a number with 4 decimals:</p>
+    <input type="text" id="input">
+    <button type="button" onclick="calculate()">Submit</button>
+    <button type="button" onclick="clear()">Clear</button>
+  </form>
+  <div id="output"></div>
+  <h3><a href="hw6.html">Back to Homework 6</a></h3>
+</body>
 </html>
