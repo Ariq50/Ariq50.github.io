@@ -1,35 +1,61 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <title>Homework 6, Part 3</title>
-        <meta charset="utf-8">
-        <meta name="description"
-              content="Page for Homework 6, Part 3">
-        <style>
-            body {
-                background-color: coral;
-                text-align: center;
+<html>
+<head>
+    <title>Phone Number Splitter</title>
+    <!-- Include jQuery library -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Include jQuery Mask Plugin -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+    <script>
+        // A function to split the phone number into parts
+        function splitPhoneNumber() {
+            // Get the value of the input box
+            var phoneNumber = $("#phone-number").val();
+            // Use regex to match the phone number format
+            var regex = /^\((\d{3})\) (\d{3})-(\d{4})$/;
+            var match = phoneNumber.match(regex);
+            // If the phone number matches the format, display the parts in the input boxes
+            if (match) {
+                $("#area-code").val(match[1]);
+                $("#first-three").val(match[2]);
+                $("#last-four").val(match[3]);
+                // Clear the error message
+                $("#error-message").text("");
+            } else {
+                // If the phone number does not match the format, display an error message
+                $("#error-message").text("Please enter the phone number in this format: (999) 999-9999");
+                // Clear the input boxes
+                $("#area-code").val("");
+                $("#first-three").val("");
+                $("#last-four").val("");
             }
+        }
 
-            h1 {
-                color: purple;
-            }
+        // A function to clear the form
+        function clearForm() {
+            // Clear the input box and the input boxes
+            $("#phone-number").val("");
+            $("#area-code").val("");
+            $("#first-three").val("");
+            $("#last-four").val("");
+            // Clear the error message
+            $("#error-message").text("");
+        }
 
-            h2 {
-                color: chartreuse;
-            }
-
-            h3 {
-                color: blue;
-            }
-
-        </style>
-    </head>
-    <body>
-            <h1>Homework 6</h1>
-            <h2>Part 3</h2>
-            <h3>
-                <a href="hw6.html">Homework 6</a>
-            </h3>
-    </body>
+        // When the document is ready, apply the mask to the input box
+        $(document).ready(function() {
+            $("#phone-number").mask("(999) 999-9999");
+        });
+    </script>
+</head>
+<body>
+    <h1>Phone Number Splitter</h1>
+    <p>Enter the phone number in this format: (999) 999-9999</p>
+    <p><input type="text" id="phone-number" placeholder="(999) 999-9999"></p>
+    <p>Area code: <input type="text" id="area-code" readonly></p>
+    <p>First three digits: <input type="text" id="first-three" readonly></p>
+    <p>Last four digits: <input type="text" id="last-four" readonly></p>
+    <p><button onclick="splitPhoneNumber()">Start</button> <button onclick="clearForm()">Clear</button></p>
+    <p id="error-message" style="color: red;"></p>
+    <p><a href="homework6.html">Back to main page</a></p>
+</body>
 </html>
