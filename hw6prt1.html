@@ -26,7 +26,7 @@
         </style>
     <script>
         // This function validates the user input and performs the calculations
-        function calculate() {
+        function mathStuff() {
             // Get the user input from the input box
             var input = document.getElementById("input").value;
             // Parse the input as a floating-point number
@@ -38,10 +38,10 @@
             // Check if the input is a valid number with at least 4 decimals
             if (isNaN(number) || input.indexOf(".") == -1 || input.length - input.indexOf(".") - 1 < 4) {
                 // Display an error message
-                output.innerHTML = "You need to type a number with at least 4 decimals, please try again";
+                output.innerHTML = "You need to type a number with at least 4 decimals. Please try again";
             } else {
                 // Perform the calculations and display the results
-                output.innerHTML += "You typed number " + number + "<br>";
+                output.innerHTML += "The number you entered was: " + number + "<br>";
                 output.innerHTML += "Rounded to the nearest integer = " + Math.round(number) + "<br>";
                 output.innerHTML += "Square root rounded to integer = " + Math.round(Math.sqrt(number)) + "<br>";
                 output.innerHTML += "Rounded to the nearest 10th position = " + number.toFixed(1) + "<br>";
@@ -57,7 +57,7 @@
     <form>
         <p>Enter a number with 4 decimals:</p>
         <input type="text" id="input">
-        <button type="button" onclick="calculate()">Submit</button>
+        <button type="button" onclick="mathStuff()">Submit</button>
         <input type='reset' value='Reset' name='reset'>
     </form>
     <div id="output"></div>
