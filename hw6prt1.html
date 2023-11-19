@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <title>Homework 6 - Part 1</title>
-        <meta charset="utf-8">
+    <title>Homework 6 - Part 1</title>
+    <meta charset="utf-8">
         <meta name="description"
               content="Page for Homework 6, Part 2">
         <style>
@@ -24,61 +24,43 @@
             }
 
         </style>
-  <script>
-    // This function will validate the input and perform the calculations
-    function calculate() {
-      // Get the input element by its id
-      var input = document.getElementById("input");
-      // Get the value of the input element and parse it as a float
-      var number = parseFloat(input.value);
-      // Get the output element by its id
-      var output = document.getElementById("output");
-      // Clear the output element
-      output.innerHTML = "";
-      // Check if the input is a valid number
-      if (isNaN(number)) {
-        // Display an error message
-        output.innerHTML = "You need to type a valid number, please try again";
-      } else {
-        // Check if the input has at least 4 decimals
-        var decimals = input.value.split(".")[1];
-        if (decimals == undefined || decimals.length < 4) {
-          // Display an error message
-          output.innerHTML = "You need to type a number with at least 4 decimals, please try again";
-        } else {
-          // Perform the calculations and display the results
-          output.innerHTML += "You typed number " + number + "<br>";
-          output.innerHTML += "Rounded to the nearest integer = " + Math.round(number) + "<br>";
-          output.innerHTML += "Square root rounded to integer = " + Math.round(Math.sqrt(number)) + "<br>";
-          output.innerHTML += "Rounded to the nearest 10th position = " + number.toFixed(1) + "<br>";
-          output.innerHTML += "Rounded to the nearest 100th position = " + number.toFixed(2) + "<br>";
-          output.innerHTML += "Rounded to the nearest 1000th position = " + number.toFixed(3) + "<br>";
+    <script>
+        // This function validates the user input and performs the calculations
+        function calculate() {
+            // Get the user input from the input box
+            var input = document.getElementById("input").value;
+            // Parse the input as a floating-point number
+            var number = parseFloat(input);
+            // Get the output element
+            var output = document.getElementById("output");
+            // Clear the output
+            output.innerHTML = "";
+            // Check if the input is a valid number with at least 4 decimals
+            if (isNaN(number) || input.indexOf(".") == -1 || input.length - input.indexOf(".") - 1 < 4) {
+                // Display an error message
+                output.innerHTML = "You need to type a number with at least 4 decimals, please try again";
+            } else {
+                // Perform the calculations and display the results
+                output.innerHTML += "You typed number " + number + "<br>";
+                output.innerHTML += "Rounded to the nearest integer = " + Math.round(number) + "<br>";
+                output.innerHTML += "Square root rounded to integer = " + Math.round(Math.sqrt(number)) + "<br>";
+                output.innerHTML += "Rounded to the nearest 10th position = " + number.toFixed(1) + "<br>";
+                output.innerHTML += "Rounded to the nearest 100th position = " + number.toFixed(2) + "<br>";
+                output.innerHTML += "Rounded to the nearest 1000th position = " + number.toFixed(3) + "<br>";
+            }
         }
-      }
-    }
-
-    // This function will clear the input and output elements
-    function clear() {
-      // Get the input element by its id
-      var input = document.getElementById("input");
-      // Get the output element by its id
-      var output = document.getElementById("output");
-      // Clear the input and output elements
-      input.value = "";
-      output.innerHTML = "";
-    }
-  </script>
+    </script>
 </head>
 <body>
-  <h1>Homework 6</h1>
-  <h2> Part 1 </h2>
-  <form>
-    <p>Enter a number with 4 decimals:</p>
-    <input type="text" id="input">
-    <button type="button" onclick="calculate()">Submit</button>
-    <button type="button" onclick="clear()">Clear</button>
-  </form>
-  <div id="output"></div>
-  <h3><a href="hw6.html">Back to Homework 6</a></h3>
+    <h1>Homework 6</h1>
+    <h2> Part 2 </h2>
+    <form>
+        <p>Enter a number with 4 decimals:</p>
+        <input type="text" id="input">
+        <button type="button" onclick="calculate()">Submit</button>
+        <input type='reset' value='Reset' name='reset'>
+    </form>
+    <div id="output"></div>
+    <h3><a href="main.html">Go back to the main page</a></h3>
 </body>
 </html>
