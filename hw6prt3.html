@@ -1,7 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Phone Number Splitter</title>
+    <title>Homework 6, Part 3</title>
+     <meta charset="utf-8">
+        <meta name="description"
+              content="Page for Homework 6, Part 2">
+        <style>
+            body {
+                background-color: coral;
+                text-align: center;
+            }
+
+            h1 {
+                color: purple;
+            }
+
+            h2 {
+                color: chartreuse;
+            }
+
+            h3 {
+                color: blue;
+            }
+
+        </style>
     <!-- Include jQuery library -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!-- Include jQuery Mask Plugin -->
@@ -49,7 +71,8 @@
     </script>
 </head>
 <body>
-    <h1>Phone Number Splitter</h1>
+    <h1>Homework 6, Part 3</h1>
+    <h2>Phone Number Splitter</h2>
     <p>Enter the phone number in this format: (999) 999-9999</p>
     <p><input type="text" id="phone-number" placeholder="(999) 999-9999"></p>
     <p>Area code: <input type="text" id="area-code" readonly></p>
@@ -57,6 +80,6 @@
     <p>Last four digits: <input type="text" id="last-four" readonly></p>
     <p><button onclick="splitPhoneNumber()">Start</button> <button onclick="clearForm()">Clear</button></p>
     <p id="error-message" style="color: red;"></p>
-    <p><a href="hw6.html">Back to Homework 6</a></p>
+    <h3><a href="hw6.html">Back to Homework 6</a></h3>
 </body>
 </html>
