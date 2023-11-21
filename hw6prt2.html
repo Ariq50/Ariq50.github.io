@@ -33,11 +33,7 @@
             character = character.toUpperCase();
             // check if the character is valid
             if (character.length != 1) {
-                output.value = ""; // clear the output area
-                var message = "Please enter only one character to search.";
-                var newWindow = window.open("", "", "width=300, height=100"); // open a new window
-                newWindow.document.write("<p>" + message + "</p>"); // write the message
-                newWindow.document.write("<button onclick='window.close()'>Close</button>"); // write a button to close the window
+                alert("Please enter only one character to search.");
                 return;
             }
             // count the number of occurrences of the character in the content
@@ -57,7 +53,6 @@
                 var newWindow = window.open("", "", "width=300, height=100"); // open a new window
                 newWindow.document.write("<p>" + message + "</p>"); // write the message
                 newWindow.document.write("<button onclick='window.close()'>Close</button>"); // write a button to close the window
-                return;
             }
         }
     </script>
@@ -72,10 +67,9 @@
         <input id="character" type="text" maxlength="1">
         <p>Click the submit button to search for the character in the content:</p>
         <input type="button" value="Submit" onclick="searchCharacter()">
-        <input type='reset' value='Reset' name='reset'>
         <p>The result will be shown in the output area below or a new window:</p>
         <textarea id="output" rows="5" cols="50" readonly></textarea>
     </form>
-    <h3><a href="hw6.html">Homework 6</a></h3>
+    <h3><a href="hw6.html">Return to the main page of Homework 6</a></h3>
 </body>
 </html>
