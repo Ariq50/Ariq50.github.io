@@ -41,12 +41,12 @@
                 output.innerHTML = "You need to type a number with at least 4 decimals. Please try again";
             } else {
                 // Perform the calculations and display the results
-                output.innerHTML += "The number you entered was: " + number + "<br>";
-                output.innerHTML += "Rounded to the nearest integer = " + Math.round(number) + "<br>";
-                output.innerHTML += "Square root rounded to integer = " + Math.round(Math.sqrt(number)) + "<br>";
-                output.innerHTML += "Rounded to the nearest 10th position = " + number.toFixed(1) + "<br>";
-                output.innerHTML += "Rounded to the nearest 100th position = " + number.toFixed(2) + "<br>";
-                output.innerHTML += "Rounded to the nearest 1000th position = " + number.toFixed(3) + "<br>";
+                output.innerHTML += "The Number You Entered Was: " + number + "<br>";
+                output.innerHTML += "Rounded To The Nearest Integer: " + Math.round(number) + "<br>";
+                output.innerHTML += "Square Root Rounded To Nearest Integer: " + Math.round(Math.sqrt(number)) + "<br>";
+                output.innerHTML += "Rounded To The Nearest Tenths Position: " + number.toFixed(1) + "<br>";
+                output.innerHTML += "Rounded To The Nearest Hundredths Position: " + number.toFixed(2) + "<br>";
+                output.innerHTML += "Rounded To The Nearest Thousandths Position: " + number.toFixed(3) + "<br>";
             }
         }
     </script>
