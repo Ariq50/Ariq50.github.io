@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Part 1 - Style Selector</title>
+    <script>
+        // You can add your own JavaScript code here
+        // This function will apply the selected background color to the main area
+        function changeBackgroundColor() {
+            // Get the radio buttons from the form
+            let radios = document.getElementsByName("bgColor");
+            // Get the main area element
+            let main = document.getElementById("main");
+            // Loop through the radio buttons and check which one is selected
+            for (let i = 0; i < radios.length; i++) {
+                if (radios[i].checked) {
+                    // Set the background color of the main area to the value of the selected radio button
+                    main.style.backgroundColor = radios[i].value;
+                    break;
+                }
+            }
+        }
+
+        // This function will apply the selected text styles to the main area
+        function changeTextStyle() {
+            // Get the checkboxes from the form
+            let checkboxes = document.getElementsByName("textStyle");
+            // Get the main area element
+            let main = document.getElementById("main");
+            // Initialize an empty string to store the text styles
+            let styles = "";
+            // Loop through the checkboxes and check which ones are checked
+            for (let i = 0; i < checkboxes.length; i++) {
+                if (checkboxes[i].checked) {
+                    // Append the value of the checked checkbox to the styles string
+                    styles += checkboxes[i].value + " ";
+                }
+            }
+            // Set the font style of the main area to the styles string
+            main.style.fontStyle = styles;
+        }
+
+        // This function will apply the selected font size to the main area
+        function changeFontSize() {
+            // Get the select element from the form
+            let select = document.getElementById("fontSize");
+            // Get the main area element
+            let main = document.getElementById("main");
+            // Set the font size of the main area to the value of the selected option
+            main.style.fontSize = select.value;
+        }
+    </script>
+</head>
+<body>
+    <h1>Part 1 - Style Selector</h1>
+    <main id="main">
+        <p>This is the first paragraph of the main area.</p>
+        <p>This is the second paragraph of the main area.</p>
+        <p>This is the third paragraph of the main area.</p>
+    </main>
+    <form>
+        <p>Select the background color:</p>
+        <input type="radio" id="white" name="bgColor" value="white" checked onchange="changeBackgroundColor()">
+        <label for="white">White</label>
+        <input type="radio" id="pink" name="bgColor" value="pink" onchange="changeBackgroundColor()">
+        <label for="pink">Pink</label>
+        <input type="radio" id="blue" name="bgColor" value="lightblue" onchange="changeBackgroundColor()">
+        <label for="blue">Light blue</label>
+        <p>Select the text style:</p>
+        <input type="checkbox" id="underline" name="textStyle" value="underline" onchange="changeTextStyle()">
+        <label for="underline">Underline</label>
+        <input type="checkbox" id="bold" name="textStyle" value="bold" onchange="changeTextStyle()">
+        <label for="bold">Bold</label>
+        <input type="checkbox" id="italic" name="textStyle" value="italic" onchange="changeTextStyle()">
+        <label for="italic">Italic</label>
+        <p>Select the font size:</p>
+        <select id="fontSize" onchange="changeFontSize()">
+            <option value="1em">1em</option>
+            <option value="1.5em">1.5em</option>
+            <option value="2em">2em</option>
+        </select>
+    </form>
+    <p><a href="homework7.html">Back to Homework 7</a></p>
+</body>
+</html>

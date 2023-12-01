@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+// A function to set a cookie with a given name and value
+function setCookie(name, value) {
+  document.cookie = name + "=" + value + ";";
+}
+
+// A function to get the value of a cookie with a given name
+function getCookie(name) {
+  var cookies = document.cookie.split(";"); // Split the cookie string into an array of name-value pairs
+  for (var i = 0; i < cookies.length; i++) { // Loop through the array
+    var cookie = cookies[i].trim(); // Remove any leading or trailing spaces
+    var parts = cookie.split("="); // Split the name and value of the cookie
+    if (parts[0] == name) { // If the name matches the given name
+      return parts[1]; // Return the value
+    }
+  }
+  return ""; // If no cookie with the given name is found, return an empty string
+}
+
+// A function to check if the user has visited the page before
+function checkUser() {
+  var name = getCookie("name"); // Get the value of the name cookie
+  var username = getCookie("username"); // Get the value of the username cookie
+  if (name != "" && username != "") { // If both cookies are not empty
+    // Display a welcome message with the name of the user
+    document.getElementById("message").innerHTML = "Welcome back, " + name + "!";
+  } else { // If either cookie is empty
+    // Display a form for the user to enter his/her name and username
+    document.getElementById("form").style.display = "block";
+  }
+}
+
+// A function to save the user's name and username as cookies
+function saveUser() {
+  var name = document.getElementById("name").value; // Get the value of the name input
+  var username = document.getElementById("username").value; // Get the value of the username input
+  if (name != "" && username != "") { // If both inputs are not empty
+    setCookie("name", name); // Set the name cookie with the name value
+    setCookie("username", username); // Set the username cookie with the username value
+    // Reload the page
+    window.location.reload();
+  } else { // If either input is empty, display separate error window
+    var message = "Please enter your name and username.";
+    var newWindow = window.open("", "", "width=300, height=100"); // open a new window
+    newWindow.document.write("<p>" + message + "</p>"); // write the message
+    newWindow.document.write("<button onclick='window.close()'>Close</button>"); // write a button to close the window
+  }
+}
+</script>
+</head>
+<body onload="checkUser()">
+<h1>Homework 7 - Part 2</h1>
+<div id="message"></div>
+<div id="form" style="display: none;">
+  <p>Please enter your name and username:</p>
+  <p>Name: <input type="text" id="name"></p>
+  <p>Username: <input type="text" id="username"></p>
+  <p><button onclick="saveUser()">Submit</button></p>
+</div>
+</body>
+</html>
