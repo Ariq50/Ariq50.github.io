@@ -16,7 +16,8 @@
   <!-- I added a heading with the content "Homework 8 - AJAX Application" -->
   <h1>Homework 8 - AJAX Application</h1>
   <!-- I added a hyperlink to go back to the main page of the course - Homework 1 -->
-  <a href="hw1.html">Back to main page</a>
+  <a href="index.html">Back to main page</a>
+  <a href="hw8extracredit.html">Back to main page</a>
   <button type="button" onclick="loadDoc()">Get CD collection</button><br /><br />
   <table id="demo"></table>
   <script>
@@ -25,7 +26,7 @@
       xhttp.onload = function () {
         myFunction(this);
       };
-      xhttp.open("GET", "catalog.xml");
+      xhttp.open("GET", "cd_catalog.xml");
       xhttp.send();
     }
     function myFunction(xml) {
