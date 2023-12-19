@@ -25,7 +25,7 @@
       xhttp.onload = function () {
         myFunction(this);
       };
-      xhttp.open("GET", "cd_catalog.xml");
+      xhttp.open("GET", "catalog.xml");
       xhttp.send();
     }
     function myFunction(xml) {
@@ -45,39 +45,3 @@
   </script>
 </body>
 </html>
-<?xml version="1.0" encoding="UTF-8"?>
-<CATALOG>
-  <CD>
-    <TITLE>Hide your heart</TITLE>
-    <ARTIST>Bonnie Tyler</ARTIST>
-    <COUNTRY>UK</COUNTRY>
-    <COMPANY>CBS Records</COMPANY>
-    <PRICE>9.90</PRICE>
-    <YEAR>1988</YEAR>
-  </CD>
-  <CD>
-    <TITLE>Sylvias Mother</TITLE>
-    <ARTIST>Dr.Hook</ARTIST>
-    <COUNTRY>UK</COUNTRY>
-    <COMPANY>CBS</COMPANY>
-    <PRICE>8.10</PRICE>
-    <YEAR>1973</YEAR>
-  </CD>
-  <CD>
-    <TITLE>Maggie May</TITLE>
-    <ARTIST>Rod Stewart</ARTIST>
-    <COUNTRY>UK</COUNTRY>
-    <COMPANY>Pickwick</COMPANY>
-    <PRICE>8.50</PRICE>
-    <YEAR>1990</YEAR>
-  </CD>
-  <!-- I added a new CD with your name as the ARTIST and the current YEAR -->
-  <CD>
-    <TITLE>My Awesome Album</TITLE>
-    <ARTIST>Your Name</ARTIST>
-    <COUNTRY>USA</COUNTRY>
-    <COMPANY>Self-Published</COMPANY>
-    <PRICE>12.99</PRICE>
-    <YEAR>2023</YEAR>
-  </CD>
-</CATALOG>
