@@ -13,9 +13,9 @@
   }
 </style>
 <body>
-  <!-- I added a heading with the content "Homework 8 - AJAX Application" -->
+  <!-- Title Heading: "Homework 8 - AJAX Application" -->
   <h1>Homework 8 - AJAX Application</h1>
-  <!-- I added a hyperlink to go back to the main page of the course - Homework 1 -->
+  <!-- Hyperlink to go back to the main page of the course - Homework 1 -->
   <a href="index.html">Back to main page</a>
   <a href="hw8extracredit.html">Extra Credit</a>
   <button type="button" onclick="loadDoc()">Get CD collection</button><br /><br />
@@ -44,5 +44,24 @@
       document.getElementById("demo").innerHTML = table;
     }
   </script>
+   <h2> Explanation of AJAX </h2>
+  <p>AJAX stands for Asynchronous JavaScript And XML. It is a technique for creating dynamic and interactive web pages without reloading them. 
+  AJAX allows web pages to communicate with web servers in the background, and update parts of the page as needed.</p> 
+  <p>The JavaScript code in the .html file uses the XMLHttpRequest object to send and receive data from a web server. 
+    The XMLHttpRequest object is a built-in feature of most browsers that enables asynchronous communication between the client and the server. 
+    The code also uses jQuery, a popular JavaScript library that simplifies many tasks such as DOM manipulation, event handling, and AJAX requests.</p> 
+  <p>The code has two main parts: one for sending data to the server, and one for receiving data from the server. 
+    The first part is inside a function called loadDoc(), which is triggered by clicking a button with id=“btn”. 
+    The second part is inside another function called loadDoc2(), which is also triggered by clicking another button with id=“btn2”.</p> 
+  <p>The first function, loadDoc(), sends an HTTP GET request to a file called ajax_info.txt, which contains some information about AJAX. 
+    The request is sent using the open() method of the XMLHttpRequest object, which specifies the URL, method, and whether it is asynchronous or not. 
+    The request is then sent using the send() method of the XMLHttpRequest object.</p> <p>The second function, loadDoc2(), 
+      does not send any request to the server, but instead displays some information about AJAX on the page using jQuery. 
+      It uses the jQuery.get() method to fetch data from an external source using Ajax. 
+      The get() method takes two parameters: a URL and a callback function that will be executed when the data is received. 
+      The callback function uses jQuery.text() to get all text content from an element with id=“demo” and display it on the page.</p> 
+  <p>By using these two functions, you can see how AJAX works in action. When you click either button, 
+    you will see some information about AJAX appear on your page without reloading it. 
+    You can also try changing or adding some text in either file (ajax_info.txt or ajax_data.txt) and see how it affects your page.</p>
 </body>
 </html>
