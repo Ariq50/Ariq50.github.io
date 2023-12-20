@@ -24,10 +24,10 @@
     <PRICE>8.50</PRICE>
     <YEAR>1990</YEAR>
   </CD>
-  <!-- I added a new CD with your name as the ARTIST and the current YEAR -->
+  <!-- New CD with my name as the ARTIST and the current YEAR-->
   <CD>
-    <TITLE>My Awesome Album</TITLE>
-    <ARTIST>Your Name</ARTIST>
+    <TITLE>Winter in Portage</TITLE>
+    <ARTIST>Kian Sattar</ARTIST>
     <COUNTRY>USA</COUNTRY>
     <COMPANY>Self-Published</COMPANY>
     <PRICE>12.99</PRICE>
